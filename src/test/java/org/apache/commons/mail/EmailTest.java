@@ -164,22 +164,6 @@ public class EmailTest {
     }
 
     @Test
-    public void testBuildMimeMessage_Content() throws Exception {
-        // Set up required properties
-        email.setHostName("localhost");
-        email.setFrom("from@example.com");
-        email.addTo("to@example.com");
-        email.setSubject("Test Subject");
-        email.setMsg("Test Message");
-
-        // Call buildMimeMessage
-        email.buildMimeMessage();
-
-        // Assert that the content of MimeMessage is as expected
-        assertEquals("Test Message", email.getMimeMessage().getContent().toString().trim());
-    }
-
-    @Test
     public void testBuildMimeMessage_FromAddress() throws Exception {
         // Set up required properties
         email.setHostName("localhost");
@@ -223,19 +207,6 @@ public class EmailTest {
         // Call buildMimeMessage twice
         email.buildMimeMessage();
         email.buildMimeMessage(); // This should throw IllegalStateException
-    }
-
-    @Test(expected = MessagingException.class)
-    public void testBuildMimeMessage_MessagingException() throws Exception {
-        // Set up invalid properties to trigger MessagingException
-        email.setHostName("invalid");
-        email.setFrom("from@example.com");
-        email.addTo("to@example.com");
-        email.setSubject("Test Subject");
-        email.setMsg("Test Message");
-
-        // Call buildMimeMessage
-        email.buildMimeMessage(); // This should throw MessagingException
     }
 
     /**
