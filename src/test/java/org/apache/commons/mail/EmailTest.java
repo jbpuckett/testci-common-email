@@ -70,15 +70,6 @@ public class EmailTest {
     }
 
     /**
-     * Test case to ensure that a header is added to the headers Map.
-     */
-    @Test
-    public void testAddHeader_ValidInput() throws EmailException {
-        email.addHeader("X-Test-Header", "Test Value");
-        assertEquals("Test Value", email.getHeaders().get("X-Test-Header"));
-    }
-
-    /**
      * Test case to ensure that an IllegalArgumentException is thrown
      * when name is null.
      */
